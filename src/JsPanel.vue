@@ -5,6 +5,10 @@
       v-show="false"
       name="headerToolbar"
     />
+    <slot
+      v-show="false"
+      name="footerToolbar"
+    />
   </div>
 </template>
 <script>
@@ -57,6 +61,13 @@ export default {
       if (this.$slots.headerToolbar) {
         options = Object.assign(
           { headerToolbar: this.$slots.headerToolbar[0].elm },
+          options
+        )
+      }
+      
+      if (this.$slots.footerToolbar) {
+        options = Object.assign(
+          { footerToolbar: this.$slots.footerToolbar[0].elm },
           options
         )
       }
